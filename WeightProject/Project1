@@ -1,0 +1,108 @@
+public class Project1 
+/* Alfred Conrad Santos, CMIS 242/6382, 25 Jan 2022 */
+{
+	private static Weight findMinimum(Weight w1, Weight w2, Weight w3) /* 1. A private class method named findMinimum that accepts the three instances of Weight as
+the parameters and returns the weight that is the smallest. The display will include the
+values of the three weights, and which one is the minimum. Use the toString() for the
+display */
+	{
+		System.out.println("Weight 1: " + w1.toString());
+		System.out.println("Weight 2: " + w2.toString());
+		System.out.println("Weight 3: " + w3.toString());
+		
+		System.out.print("Minimum is Weight ");
+		
+		if(w1.lessThan(w2) && w1.lessThan(w3))
+		{
+			System.out.println("1");
+			return w1;
+		}
+		else if(w2.lessThan(w1) && w2.lessThan(w3))
+		{
+			System.out.println("2");			
+			return w2;
+		}
+		else
+		{
+			System.out.println("3");
+			return w3;
+		}
+	}
+	
+	private static Weight findMaximum(Weight w1, Weight w2, Weight w3) /* A private class method named findMaximum that accepts the three instances of Weight as
+the parameters and returns the weight that is the highest. The display will include the
+values of the three weights, and which one is the maximum. Use the toString() for the
+display. */
+	{
+		System.out.println("Weight 1: " + w1.toString());
+		System.out.println("Weight 2: " + w2.toString());
+		System.out.println("Weight 3: " + w3.toString());
+		
+		System.out.print("Maximum is Weight ");
+		
+		if(!w1.lessThan(w2) && !w1.lessThan(w3))
+		{
+			System.out.println("1");
+			return w1;
+		}
+		else if(!w2.lessThan(w1) && !w2.lessThan(w3))
+		{
+			System.out.println("2");			
+			return w2;
+		}
+		else
+		{
+			System.out.println("3");
+			return w3;
+		}
+	}
+	
+	private static Weight findAverage(Weight w1, Weight w2, Weight w3) /* A private class method named findAverage that accepts the three instances of Weight as
+the parameters and returns the average weight. The display will include the values of the
+three weights, and the value for the average. Use the toString() for the display. */
+	{
+		System.out.println("Weight 1: " + w1.toString());
+		System.out.println("Weight 2: " + w2.toString());
+		System.out.println("Weight 3: " + w3.toString());
+		
+		System.out.print("Average Weight is ");
+		
+		Weight w = new Weight(0, 0);
+		
+		w.addTo(w1);
+		w.addTo(w2);
+		w.addTo(w3);
+		
+		String weight = w.toString();
+		
+		String data[] = weight.split(" ");
+		
+		int pound = Integer.parseInt(data[0]);
+		double ounces = Double.parseDouble(data[2]);
+		
+		double totalOunces = ounces + (pound * 16);
+		
+		Weight avg = new Weight(0, totalOunces/3);
+
+		w = new Weight(0, 0);
+		
+		avg.addTo(w);
+		
+		System.out.println(avg.toString());
+		
+		return avg;
+	}
+	
+	public static void main(String[] args)
+	{
+		Weight weight1 = new Weight(10, 8);
+		Weight weight2 = new Weight(15, 12);
+		Weight weight3 = new Weight(16, 7);
+		
+		findMinimum(weight1, weight2, weight3);
+		System.out.println();
+		findMaximum(weight1, weight2, weight3);
+		System.out.println();
+		findAverage(weight1, weight2, weight3);
+	}
+}
