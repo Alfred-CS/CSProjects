@@ -1,2 +1,2 @@
 # CSProjects
-All my CS Projects during college
+All my favorite CS Projects during colleg
