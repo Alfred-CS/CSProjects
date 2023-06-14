@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %} New File {% endblock %}
+
+{% block content %}
+
+<div class = 'container'>
+    <form action="" method="post" enctype = "multipart/form-data">
+      <div class="card">
+        <div class="card-body">    
+          <div class="row">
+            <div class="col">
+              <br>
+              <select class="form-control form-select" name="patientName" id="patientName" required>
+                <option disabled selected="selected">Patient Name</option>
+                <!--Need to change 'hit' and 'results' based on how the variable gets sent from backend-->
+                {% for hit in results %}
+                  <option value="{{hit['lastName']}}">{{ hit['lastName'] }}</option>
+                {% endfor %}  
+              </select>
+            </div>
+            <div class="col">
+                <label for="visitDate">Visit Date:</label>
+                <br>
+                <input type="date" id="visitDate" name="visitDate" value="2018-07-22" min="2018-01-01" max="2025-12-31" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label> </label>
+              <select class="form-control form-select" name="bed" id="bed" required>
+                <option disabled selected="selected">Bed</option>
+                <!--Need to change 'hit' and 'results' based on how the variable gets sent from backend-->
+                {% for hit in results %}
+                  <option value="{{hit['bed']}}">{{ hit['bed'] }}</option>
+                {% endfor %}  
+              </select>
+            </div>
+            <div class="col">
+                <label>Diagnosis</label>
+                <input type="text" class="form-control" placeholder="diagnosis" name="diagnosis" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>Treatment</label>
+              <input type="text" class="form-control" placeholder="Treatment" name="treatment" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Medication</label>
+                <input type="text" class="form-control" placeholder="Medication" name="medication" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>Notes</label>
+              <input type="text" class="form-control" placeholder="Notes" name="notes" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Billing Amount</label>
+                <input type="text" class="form-control" placeholder="Billing Amount" name="billingAmount" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="True" id="ambulance" name='my_checkbox'>
+            <label class="form-check-label" for="ambulance">
+              Ambulance Used
+            </label>
+          </div>
+          <br>
+
+          
+
+          <button type="submit" class="btn btn-outline-success" value="Submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+{% endblock %}

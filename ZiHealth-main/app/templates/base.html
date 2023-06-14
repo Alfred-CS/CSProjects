@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Style.css') }}">
+  <!--Required for Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-light" style="background-color: #dfdfdf;">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="/static/StaticImages/zihealth.png" alt="ziHealth Logo" width="175"
+          height="60" class="d-inline-block align-text-top" />
+        </a>
+        <div class="nav-item">
+          <a class="nav-link" href="/home">Home</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/newPatient">New Patient</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/newStaff">New Staff</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/newFile">New Medical File</a>
+        </div>
+        <!-- <div class="nav-item">
+          <a class="nav-link" href="/newBed">New Bed</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/newRoom">New Room</a>
+        </div> -->
+        <div class="nav-item">
+          <a class="nav-link" href="/search">Search</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+<!--End Menu-->
+<br><br><br><br>
+
+<!-- Flash Alerts -->
+<div class="container" id="alertBlock">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        <span> {{message}} </span>  
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>
+
+
+{% block content %} {% endblock %}
+
+<!--Required for Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+<!--Footer-->
+<footer class="container mt-auto py-3 text-muted border-top">
+</footer>
+<!--End Footer-->
+
+</body>
+</html>
+

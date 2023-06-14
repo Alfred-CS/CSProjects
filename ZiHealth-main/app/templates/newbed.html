@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} New Bed {% endblock %}
+
+{% block content %}
+
+<div class = 'container'>
+    <form action="" method="post" enctype = "multipart/form-data">
+      <div class="card">
+        <div class="card-body">    
+          <div class="row">
+            <div class="col">
+              <label>Room ID</label>
+              <input type="text" class="form-control" placeholder="Room ID" name="roomID" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>Bed ID</label>
+              <input type="text" class="form-control" placeholder="Bed ID" name="bedID" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-success" value="Submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+
+{% endblock %}

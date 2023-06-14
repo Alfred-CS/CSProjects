@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %} New Patient {% endblock %}
+
+{% block content %}
+
+<div class = 'container'>
+    <form action="" method="post" enctype = "multipart/form-data">
+      <div class="card">
+        <div class="card-body">    
+          <div class="row">
+            <div class="col">
+              <label>First Name</label>
+              <input type="text" class="form-control" placeholder="First Name" name="firstName" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" name="lastName" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>SSN</label>
+              <input type="text" class="form-control" placeholder="SSN" name="ssn" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Insurance</label>
+                <input type="text" class="form-control" placeholder="Insurance" name="insurance" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>Address</label>
+              <input type="text" class="form-control" placeholder="Address" name="address" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Physician</label>
+                <input type="text" class="form-control" placeholder="Physician" name="physician" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+                <label for="admitDate">Admitted Date:</label>
+                <br>
+                <input type="date" id="admitDate" name="admitDate" value="2018-07-22" min="2018-01-01" max="2025-12-31" required>
+            </div>
+          <div class="col">
+            <label></label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="status" id="status1" value ="inpatient" checked>
+            <label class="form-check-label" for="status1">
+              Inpatient
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="status" id="status2" value = "outpatient">
+            <label class="form-check-label" for="status2">
+              Outpatient
+            </label>
+          </div>
+        </div>
+        </div>
+          <br>
+          <div class="row">
+          <button type="submit" class="btn btn-outline-success" value="Submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

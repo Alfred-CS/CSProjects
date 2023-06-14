@@ -1,0 +1,45 @@
+version: '4.4.3'
+
+  
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'username'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: "password"
+    networks:
+     - backend
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  app:
+    build: ./app
+    container_name: app3
+    networks:
+      - backend
+    volumes:
+      - ./app:/usr/src/app
+    environment:
+      FLASK_ENV: development
+      FLASK_APP: app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+      
+
+networks:
+  backend:
+    name: custom-backend
+
+volumes:
+  mysql-data:
+    driver: local

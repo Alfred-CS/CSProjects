@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %} New Staff {% endblock %}
+
+{% block content %}
+
+<div class = 'container'>
+    <form action="" method="post" enctype = "multipart/form-data">
+      <div class="card">
+        <div class="card-body">    
+          <div class="row">
+            <div class="col">
+              <label>First Name</label>
+              <input type="text" class="form-control" placeholder="First Name" name="firstName" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" name="lastName" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>SSN</label>
+              <input type="text" class="form-control" placeholder="SSN" name="ssn" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Staff Type</label>
+                <select class="form-control form-select" placeholder="Staff Type" name="type" required>
+                  <option disabled selected="selected">Staff Type</option>
+                  <option value='dr'>Doctor</option>
+                  <option value='nurse'>Nurse</option>
+                  <option value='other'>Other</option> 
+                </select>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>Address</label>
+              <!--Change to text Box-->
+              <input type="text" class="form-control" placeholder="Address" name="address" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Certification</label>
+                <input type="text" class="form-control" placeholder="Certification" name="certification" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label for="certExp">Certification Expiration:</label>
+                <br>
+                <input type="date" id="certExp" name="certExp" value="2018-07-22" min="2018-01-01" max="2035-12-31" required>
+            </div>
+            <div class="col">
+                <label>Phone Number</label>
+                <input type="text" class="form-control" placeholder="000000000 Format" name="phone" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>Email Address</label>
+              <input type="text" class="form-control" placeholder="Email" name="email" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Payroll</label>
+                <input type="text" class="form-control" placeholder="Payroll" name="payroll" value="{{request.form.section}}" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>Personal Details</label>
+              <!--Change to text box-->
+              <input type="text" class="form-control" placeholder="Notes" name="notes" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>Status</label>
+                <select class="form-control form-select" placeholder="Status" name="status" required>
+                  <option disabled selected="selected">Status</option>
+                  <option value='onCall'>On-Call</option>
+                  <option value='off'>Off</option>
+                  <option value='on'>On</option> 
+                </select>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label>New Username</label>
+              <input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.section}}" required>
+            </div>
+            <div class="col">
+                <label>New Password</label>
+                <input type="text" class="form-control" placeholder="Password" name="password" value="{{request.form.section}}" required>
+            </div>
+            </div>
+          <br>
+          <button type="submit" class="btn btn-outline-success" value="Submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

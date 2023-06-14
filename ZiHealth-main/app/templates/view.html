@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock %}
+
+{% block content %}
+
+<div class = 'container'>
+      <div class="card">
+        <div class="card-body"> 
+            {% if staff %}
+                {{firstName}}
+                {{lastName}}
+                <br>
+                {{address}}
+                {{certification}}
+                {{certExp}}
+                {{phoneNumber}}
+                {{email}}
+                <br>
+                {{notes}}
+                {{staffType}}
+                {{payroll}}
+                {{status}}
+                {{username}}
+            {% endif %}
+
+            {% if patient %}
+                {{firstName}}
+                {{lastName}}
+                {{ssn}}
+                <br>
+                {{address}}
+                {{insurance}}
+                <br>
+                {{physician}}
+                {{admitDate}}
+                {{status}}
+            {% endif %}
+
+            {% if records %}
+                {{patientName}}
+                {{visitDate}}
+                <br>
+                {{bed}}
+                {{diagnosis}}
+                {{treatment}}
+                {{medication}}
+                {{notes}}
+                <br>
+                {{billingAmount}}
+                {{ambulanceUsed}}
+            {% endif %}
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
